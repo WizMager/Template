@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
 
 namespace Splash
 {
@@ -7,7 +7,7 @@ namespace Splash
     {
         private void Start()
         {
-            SceneManager.LoadScene("Game");
+            Addressables.LoadSceneAsync("Assets/Scenes/Game.unity");
         }
     }
 }
