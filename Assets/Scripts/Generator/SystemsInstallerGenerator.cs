@@ -56,7 +56,7 @@ namespace Game
         {
             var nameSpacesSorted = nameSpaces
                 .Distinct()
-                .Where(nameSpace => !string.IsNullOrWhiteSpace(nameSpace))
+                .Where(nameSpace => !string.IsNullOrWhiteSpace(nameSpace) && nameSpace != "Generator")
                 .OrderBy(nameSpace => nameSpace);
 
             var builtNameSpaces = string.Join("\n", nameSpacesSorted.Select(s => "using " + s + ";"));
