@@ -22,3 +22,9 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  refMain:
+    m_AssetGUID: 6ccee84ebdb95c745869566da35cba4e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+    sceneName: Game

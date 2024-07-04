@@ -1,10 +1,11 @@
-﻿using UnityEngine.AddressableAssets;
+﻿using Cysharp.Threading.Tasks;
+using UniRx;
+using UnityEngine.AddressableAssets;
 
 namespace Services.SceneLoadingService
 {
     public interface ISceneLoadingService
     {
-        void LoadScene(AssetReference scene);
-        void UnLoadScene(AssetReference scene);
+        UniTask LoadScene(AssetReference scene, ReactiveCommand onLoadedSceneCommand = null);
     }
 }

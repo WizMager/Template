@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -11,15 +10,7 @@ namespace Configs.SceneReferenceBase.Impl
         [SerializeField] private AssetReference mainScene;
         [SerializeField] private List<AssetReference> scenesList;
 
-        public List<AssetReference> ScenesList
-        {
-            get
-            {
-                Debug.Log(scenesList.Count);
-                Debug.Log(scenesList[0]);
-                return scenesList;
-            }
-        }
+        public List<AssetReference> ScenesList => scenesList;
 
         public AssetReference MainScene => mainScene;
     }

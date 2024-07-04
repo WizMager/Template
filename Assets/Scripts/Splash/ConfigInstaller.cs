@@ -1,4 +1,5 @@
-﻿using Configs.SceneReferenceBase.Impl;
+﻿using Configs.SceneReferenceBase;
+using Configs.SceneReferenceBase.Impl;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +12,7 @@ namespace Splash
         
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<SceneReferenceBase>().AsSingle();
+            Container.Bind<ISceneReferenceBase>().FromInstance(sceneReferenceBase).AsSingle();
         }
     }
 }
