@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.annulusgames.alchemy": "https://github.com/AnnulusGames/Alchemy.git?path=/Alchemy/Assets/Alchemy",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.kienanunique.kobolduiframework": "https://github.com/KienanUnique/KoboldUiFramework.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.addressables": "1.21.21",
     "com.unity.collab-proxy": "2.3.1",
