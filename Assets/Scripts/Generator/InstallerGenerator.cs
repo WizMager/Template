@@ -14,7 +14,7 @@ namespace Generator
         private const string PATH = "Scripts/Game/";
         private static bool _inProgress;
 
-        [MenuItem("Tools/Generate Installers &g")]
+        [MenuItem("Tools/Generate ControllerInstaller &g")]
         public static void GenerateManual()
         {
             if (_inProgress)
@@ -34,7 +34,7 @@ namespace Generator
 
                 installerTemplates.SaveToFile(directoryPath);
                 
-                Debug.Log($"Generated systems: {installerTemplates.Counter}");
+                Debug.Log($"Generated controllers: {installerTemplates.Counter}");
             }
             finally
             {
@@ -50,7 +50,7 @@ namespace Generator
         {
             var collectedTemplates = CollectTemplates();
 
-            var generatedInstallerCode = SystemsInstallerGenerator.GenerateInstaller(InstallerTemplate.Name, collectedTemplates.Container, collectedTemplates.Namespaces);
+            var generatedInstallerCode = ControllerInstallerGenerator.GenerateInstaller(InstallerTemplate.Name, collectedTemplates.Container, collectedTemplates.Namespaces);
             collectedTemplates.GeneratedInstallerCode = generatedInstallerCode;
             
             return collectedTemplates;

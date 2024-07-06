@@ -12,7 +12,7 @@ using Zenject;
 
 namespace Game
 {
-	public class SystemsInstaller : MonoInstaller
+	public class ControllersInstaller : MonoInstaller
     {
 		public override void InstallBindings()
         {
@@ -24,7 +24,7 @@ namespace Game
 		private void Normal(DiContainer container)
 		{
 			// 0012
-			container.BindInterfacesAndSelfTo<TestSystem>().AsSingle();	// 0012
+			container.BindInterfacesAndSelfTo<TestController>().AsSingle();	// 0012
 		}	
     }
 }

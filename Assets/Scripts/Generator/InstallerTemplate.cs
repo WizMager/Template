@@ -11,7 +11,7 @@ namespace Generator
         
         public string GeneratedInstallerCode;
         public int Counter;
-        public static string Name => "SystemsInstaller";
+        public static string Name => "ControllersInstaller";
 
         public void SaveToFile(string path)
         {

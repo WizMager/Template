@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Generator
 {
-    public static class SystemBindGenerator
+    public static class ControllerBindGenerator
     {
         private static string GetBind(TypeElement type)
         {

@@ -5,7 +5,7 @@ using Game.Bootstrap;
 
 namespace Generator
 {
-    public class SystemsInstallerGenerator
+    public class ControllerInstallerGenerator
     {
         public static string GetInstaller(
             string name,
@@ -65,7 +65,7 @@ namespace Game
                 {
                     methodName = kvp.Key.ToString(),
                     types = kvp.Value,
-                    binds = SystemBindGenerator.GetBinds(kvp.Value)
+                    binds = ControllerBindGenerator.GetBinds(kvp.Value)
                 })
                 .Where(s => s.binds.Any())
                 .ToList();

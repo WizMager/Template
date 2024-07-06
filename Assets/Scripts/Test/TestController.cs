@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Test
 {
     [Install(EExecutionPriority.Normal, 12)]
-    public class TestSystem : IUpdatable
+    public class TestController : IUpdatable
     {
         public void Update()
         {
