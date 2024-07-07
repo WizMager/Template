@@ -1,6 +1,6 @@
-﻿using Configs.SceneReferenceBase;
+﻿using System;
+using Configs.SceneReferenceBase;
 using Cysharp.Threading.Tasks;
-using UniRx;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
@@ -24,7 +24,7 @@ namespace Services.SceneLoadingService.Impl
             await LoadFromSplash();
         }
         
-        private async UniTask LoadFromSplash()
+        public async UniTask LoadFromSplash(Action onSceneLoaded = null)
         {
             var gameScene = Addressables.LoadSceneAsync(_sceneReferenceBase.MainScene);
             var levelScene = Addressables.LoadSceneAsync(_sceneReferenceBase.ScenesList[0], LoadSceneMode.Additive);
@@ -35,9 +35,11 @@ namespace Services.SceneLoadingService.Impl
             _loadedScene = resulScene;
             
             SceneManager.SetActiveScene(resulScene.Scene);
+            
+            onSceneLoaded?.Invoke();
         }
         
-        public async UniTask LoadScene(AssetReference scene, ReactiveCommand onLoadedSceneCommand = null)
+        public async UniTask LoadScene(AssetReference scene, Action onSceneLoaded = null)
         {
             var oldScene = Addressables.UnloadSceneAsync(_loadedScene);
             var newScene = Addressables.LoadSceneAsync(scene);
@@ -49,7 +51,7 @@ namespace Services.SceneLoadingService.Impl
             
             SceneManager.SetActiveScene(resulScene.Scene);
 
-            onLoadedSceneCommand?.Execute();
+            onSceneLoaded?.Invoke();
         }
     }
 }
