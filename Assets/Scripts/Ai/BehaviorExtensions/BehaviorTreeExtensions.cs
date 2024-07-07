@@ -10,7 +10,7 @@ namespace Ai.BehaviorExtensions
         {
             tree.CheckForSerialization(true, true);
 
-            tree.OnBehaviorStart += behavior => { InjectIntoBehavior(container, behavior); };
+             InjectIntoBehavior(container, tree);
         }
 
         private static void InjectIntoBehavior(DiContainer container, Behavior behavior)
