@@ -1,4 +1,4 @@
-using Test;
+using Game.Controllers.Initialize;
 using Zenject;
 
 //------------------------------------------------------------------------------
@@ -18,13 +18,18 @@ namespace Game
         {
             var container = Container;
 			Normal(container);
+			Urgent(container);
             Container.BindInterfacesAndSelfTo<Bootstrap.Bootstrap>().AsSingle().NonLazy();
 		}
 
 		private void Normal(DiContainer container)
 		{
-			// 0012
-			container.BindInterfacesAndSelfTo<TestController>().AsSingle();	// 0012
+		}
+
+		private void Urgent(DiContainer container)
+		{
+			// 0001
+			container.BindInterfacesAndSelfTo<InitializeController>().AsSingle();	// 0001
 		}	
     }
 }
