@@ -2,7 +2,6 @@
 using Generator;
 using Providers.GameFieldProvider;
 using Services.InitializeService;
-using UnityEngine;
 
 namespace Game.Controllers.Initialize
 {
@@ -23,14 +22,10 @@ namespace Game.Controllers.Initialize
         
         public void Start()
         {
-            foreach (var go in _gameFieldProvider.GameField.TestObject)
+            foreach (var view in _gameFieldProvider.GameField.AllViewInitializables)
             {
-                Debug.Log(go.gameObject.transform.name);
-                
-                _initializeService.Initialize(go);
+                _initializeService.Initialize(view);
             }
-            
-            Debug.Log(_initializeService.ViewInitializables.Count);
         }
     }
 }

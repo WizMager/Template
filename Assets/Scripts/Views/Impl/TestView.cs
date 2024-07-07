@@ -1,7 +1,6 @@
-﻿namespace Views
+﻿namespace Views.Impl
 {
     public class TestView : AView
     {
-        
     }
 }

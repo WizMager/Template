@@ -19,6 +19,8 @@ namespace Services.InitializeService.Impl
         {
             _diContainer.Inject(viewInitializable);
             
+            viewInitializable.Initialize();
+            
             ViewInitializables.Add(viewInitializable);
         }
     }
