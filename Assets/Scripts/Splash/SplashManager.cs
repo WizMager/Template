@@ -1,4 +1,6 @@
-﻿using Services.SceneLoadingService;
+﻿using KoboldUi.Utils;
+using Services.SceneLoadingService;
+using Ui.LoadingUi;
 using UnityEngine;
 using Zenject;
 
@@ -7,13 +9,15 @@ namespace Splash
     public class SplashManager : MonoBehaviour
     {
         [Inject] private ISceneLoadingService _sceneLoadingService;
+        [Inject] private SignalBus _signalBus;
         
         private void Start()
         {
-            //TODO: open loadingWindow
+            _signalBus.OpenWindow<LoadingWindow>(EWindowLayer.Project);
+            
             _sceneLoadingService.LoadFromSplash(() =>
             {
-                //TODO: close loadingWindow
+                _signalBus.BackWindow(EWindowLayer.Project);
             });
         }
     }

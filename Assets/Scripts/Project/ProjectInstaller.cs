@@ -7,6 +7,8 @@ namespace Project
     {
         public override void InstallBindings()
         {
+            SignalBusInstaller.Install(Container);
+            
             Container.BindInterfacesAndSelfTo<SceneLoadingService>().AsSingle();
         }
     }
