@@ -1,4 +1,4 @@
-﻿using Services.SceneLoadingService.Impl;
+﻿using Services.InitializeService.Impl;
 using Zenject;
 
 namespace Game.Installers
@@ -7,7 +7,7 @@ namespace Game.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<SceneLoadingService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InitializeService>().AsSingle();
         }
     }
 }

@@ -4,11 +4,10 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
-using Zenject;
 
 namespace Services.SceneLoadingService.Impl
 {
-    public class SceneLoadingService : ISceneLoadingService, IInitializable
+    public class SceneLoadingService : ISceneLoadingService
     {
         private readonly ISceneReferenceBase _sceneReferenceBase;
 
@@ -18,18 +17,16 @@ namespace Services.SceneLoadingService.Impl
         {
             _sceneReferenceBase = sceneReferenceBase;
         }
-
-        public async void Initialize()
-        {
-            await LoadFromSplash();
-        }
         
         public async UniTask LoadFromSplash(Action onSceneLoaded = null)
         {
-            var gameScene = Addressables.LoadSceneAsync(_sceneReferenceBase.MainScene);
-            var levelScene = Addressables.LoadSceneAsync(_sceneReferenceBase.ScenesList[0], LoadSceneMode.Additive);
-
-            await UniTask.WhenAll(gameScene.Task.AsUniTask(), levelScene.Task.AsUniTask());
+            var levelScene = Addressables.LoadSceneAsync(_sceneReferenceBase.ScenesList[0]);
+            
+            await levelScene.Task.AsUniTask();
+            
+            var gameScene = Addressables.LoadSceneAsync(_sceneReferenceBase.MainScene, LoadSceneMode.Additive);
+            
+            await gameScene.Task.AsUniTask();
 
             var resulScene = levelScene.Result;
             _loadedScene = resulScene;
