@@ -7,7 +7,7 @@ namespace Views.Modules.Impl
     {
         public override void Initialize(AView view, CompositeDisposable disposable)
         {
-            Debug.Log($"Initialize Module: {view.name}/{disposable.Count}");
+            Debug.Log($"Initialize Module: {view.name}/{disposable.Count}  ");
         }
     }
 }
