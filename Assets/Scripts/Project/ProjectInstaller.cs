@@ -1,7 +1,7 @@
 ﻿using Services.SceneLoadingService.Impl;
 using Zenject;
 
-namespace Splash
+namespace Project
 {
     public class ProjectInstaller : MonoInstaller
     {

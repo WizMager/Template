@@ -3,7 +3,7 @@ using Configs.SceneReferenceBase.Impl;
 using UnityEngine;
 using Zenject;
 
-namespace Splash
+namespace Project
 {
     [CreateAssetMenu(menuName = "Installer/" + nameof(ConfigInstaller), fileName = nameof(ConfigInstaller))]
     public class ConfigInstaller : ScriptableObjectInstaller
