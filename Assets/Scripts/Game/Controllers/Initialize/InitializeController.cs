@@ -1,7 +1,9 @@
-﻿using Game.Bootstrap.Interfaces;
+﻿using Ai.BehaviorExtensions;
+using Game.Bootstrap.Interfaces;
 using Generator;
 using Providers.GameFieldProvider;
 using Services.InitializeService;
+using Zenject;
 
 namespace Game.Controllers.Initialize
 {
@@ -10,14 +12,18 @@ namespace Game.Controllers.Initialize
     {
         private readonly IGameFieldProvider _gameFieldProvider;
         private readonly IInitializeService _initializeService;
-        
-        public InitializeController(
+        private readonly DiContainer _container;
+
+        public InitializeController
+        (
             IGameFieldProvider gameFieldProvider, 
-            IInitializeService initializeService
+            IInitializeService initializeService,
+            DiContainer container
         )
         {
             _gameFieldProvider = gameFieldProvider;
             _initializeService = initializeService;
+            _container = container;
         }
         
         public void Start()
@@ -25,6 +31,12 @@ namespace Game.Controllers.Initialize
             foreach (var view in _gameFieldProvider.GameField.AllViewInitializables)
             {
                 _initializeService.Initialize(view);
+            }
+            
+            foreach (var aiView in _gameFieldProvider.GameField.AllAiViewInitializables)
+            {
+                aiView.BehaviorTree.QueueAllTasksForInject(_container);
+                aiView.BehaviorTree.EnableBehavior();
             }
         }
     }
