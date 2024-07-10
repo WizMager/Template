@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Alchemy.Inspector;
 using UnityEngine;
 using Views;
@@ -8,8 +9,8 @@ namespace Utils
 {
     public class GameField : MonoBehaviour
     {
-        [SerializeField] private AAiView[] aiViews;
-        [SerializeField] private AView[] testObject;
+        [SerializeField] private List<AAiView> aiViews;
+        [SerializeField] private List<AView> testObject;
         
         public IViewInitializable[] AllViewInitializables
         {
@@ -27,6 +28,7 @@ namespace Utils
             get
             {
                 var list = new List<IAi>();
+                
                 list.AddRange(aiViews);
 
                 return list.ToArray();
@@ -38,9 +40,9 @@ namespace Utils
         {
             ClearAllFields();
 
-            testObject = FindObjectsOfType<AView>();
+            testObject = new List<AView>(FindObjectsOfType<AView>().Where(view => view is not AAiView));
 
-            aiViews = FindObjectsOfType<AAiView>();
+            aiViews = new List<AAiView>(FindObjectsOfType<AAiView>().ToArray());
             
             Debug.Log("Autofill Complete");
         }
