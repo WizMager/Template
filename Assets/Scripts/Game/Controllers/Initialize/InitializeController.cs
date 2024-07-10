@@ -3,6 +3,7 @@ using Game.Bootstrap.Interfaces;
 using Generator;
 using Providers.GameFieldProvider;
 using Services.InitializeService;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Controllers.Initialize
@@ -35,6 +36,12 @@ namespace Game.Controllers.Initialize
             
             foreach (var aiView in _gameFieldProvider.GameField.AllAiViewInitializables)
             {
+                if (aiView.BehaviorTree == null)
+                {
+                    Debug.LogError("AiView has no linked behavior tree");
+                    continue;
+                }
+                
                 aiView.BehaviorTree.QueueAllTasksForInject(_container);
                 aiView.BehaviorTree.EnableBehavior();
             }
