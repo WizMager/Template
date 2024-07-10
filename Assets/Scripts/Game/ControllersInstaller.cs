@@ -17,13 +17,8 @@ namespace Game
 		public override void InstallBindings()
         {
             var container = Container;
-			Normal(container);
 			Urgent(container);
             Container.BindInterfacesAndSelfTo<Bootstrap.Bootstrap>().AsSingle().NonLazy();
-		}
-
-		private void Normal(DiContainer container)
-		{
 		}
 
 		private void Urgent(DiContainer container)

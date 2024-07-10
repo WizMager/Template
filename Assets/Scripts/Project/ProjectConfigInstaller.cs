@@ -5,8 +5,8 @@ using Zenject;
 
 namespace Project
 {
-    [CreateAssetMenu(menuName = "Installer/" + nameof(ConfigInstaller), fileName = nameof(ConfigInstaller))]
-    public class ConfigInstaller : ScriptableObjectInstaller
+    [CreateAssetMenu(menuName = "Installer/" + nameof(ProjectConfigInstaller), fileName = nameof(ProjectConfigInstaller))]
+    public class ProjectConfigInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private SceneReferenceBase sceneReferenceBase;
         
