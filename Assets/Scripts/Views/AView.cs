@@ -20,6 +20,23 @@ namespace Views
             }
         }
 
+        public bool TryGetModule<T>(out T findModule) where T : AModule
+        {
+            findModule = null;
+            
+            foreach (var module in modules)
+            {
+                if (module is T needModule)
+                {
+                    findModule = needModule;
+                }
+            }
+
+            Debug.Log($"[{name}]: Does not have module with type {typeof(T)}");
+            
+            return false;
+        }
+        
         public void Dispose()
         {
             _disposable.Dispose();

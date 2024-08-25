@@ -30,6 +30,15 @@
         "com.unity.ugui": "1.0.0"
       }
     },
+    "com.cysharp.r3": {
+      "version": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.imgui": "1.0.0"
+      },
+      "hash": "2eaf201aabbbcb8d84c447cdd29201e457a4472a"
+    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,
@@ -37,12 +46,19 @@
       "dependencies": {},
       "hash": "cdf88c6a6ac8c9b7e6e5d3c0a360a4af29641c24"
     },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a011c51ed65c9abc3151a7a408bc70d408352933"
+    },
     "com.kienanunique.kobolduiframework": {
       "version": "https://github.com/KienanUnique/KoboldUiFramework.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "322ddf039c6d33a553f5b54bd42cffb1a2296202"
+      "hash": "54ea090b150419b45139f2c7d9cdf4a80d79ed6f"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -122,6 +138,15 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.7.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
