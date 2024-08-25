@@ -1,6 +1,6 @@
 ﻿namespace Game.Bootstrap.Interfaces
 {
-    public interface ISystem
+    public interface IController
     {
     }
 }

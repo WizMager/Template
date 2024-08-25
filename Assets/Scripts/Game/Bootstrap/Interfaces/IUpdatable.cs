@@ -1,6 +1,6 @@
 ﻿namespace Game.Bootstrap.Interfaces
 {
-    public interface IUpdatable : ISystem
+    public interface IUpdatable : IController
     {
         void Update();
     }

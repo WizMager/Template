@@ -12,26 +12,26 @@ namespace Game.Bootstrap
         private readonly List<IFixedUpdatable> _fixedUpdatables = new();
         private readonly List<ILateUpdatable> _lateUpdatables = new();
 
-        public Bootstrap(List<ISystem> systems)
+        public Bootstrap(List<IController> controllers)
         {
-            foreach (var system in systems)
+            foreach (var controller in controllers)
             {
-                if (system is IStartable startable)
+                if (controller is IStartable startable)
                 {
                     _startables.Add(startable);
                 }
                 
-                if (system is IUpdatable updatable)
+                if (controller is IUpdatable updatable)
                 {
                     _updatables.Add(updatable);
                 }
                 
-                if (system is IFixedUpdatable fixedUpdatable)
+                if (controller is IFixedUpdatable fixedUpdatable)
                 {
                     _fixedUpdatables.Add(fixedUpdatable);
                 }
                 
-                if (system is ILateUpdatable lateUpdatable)
+                if (controller is ILateUpdatable lateUpdatable)
                 {
                     _lateUpdatables.Add(lateUpdatable);
                 }

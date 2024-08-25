@@ -1,6 +1,6 @@
 ﻿namespace Game.Bootstrap.Interfaces
 {
-    public interface IStartable : ISystem
+    public interface IStartable : IController
     {
         void Start();
     }

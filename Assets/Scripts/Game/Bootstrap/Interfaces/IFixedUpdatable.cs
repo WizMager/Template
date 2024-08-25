@@ -1,6 +1,6 @@
 ﻿namespace Game.Bootstrap.Interfaces
 {
-    public interface IFixedUpdatable : ISystem
+    public interface IFixedUpdatable : IController
     {
         void FixedUpdate();
     }
